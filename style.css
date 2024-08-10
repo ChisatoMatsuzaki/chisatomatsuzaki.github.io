@@ -1,0 +1,307 @@
+/* スマートフォンサイズの画面でのスタイリング */
+@media (max-width: 600px) {
+  .site-summary {
+    display: none;
+  }
+
+  .site-title {
+    font-size: 20px;
+  }
+
+  .responsive-header {
+    padding-top: 0px;
+  }
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+}
+
+iframe {
+  display: block;
+  width: 100%;
+  height: 400px;
+  border: none;
+}
+
+a {
+  color: #6375b6;
+}
+
+td {
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+}
+
+ul, ol {
+  padding: 0.5em 0.5em 0.5em 2em;/*ボックス内の余白*/
+}
+
+ul li, ol li {
+  line-height: 1.0;
+  padding: 0.5em 0;
+}
+
+h2 {
+  border-bottom: solid 3px #6375b6;
+}
+
+h3 {
+  background: #6375b628;
+  padding: 0.5em;
+  border-radius: 6px;
+}
+
+.indent1 {
+  margin-left: 15px;
+}
+
+.indent2 {
+  margin-left: 30px;
+}
+
+.indent3 {
+  margin-left: 45px;
+}
+
+.indent5 {
+  margin-left: 60px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.center-paragraphs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.image-container img {
+  width: 30%;
+  height: auto;
+  padding: 20px;
+}
+
+.responsive-header {
+  width: 100%;
+  height: auto;
+}
+
+.rounded-image {
+  border-radius: 20%;
+}
+
+.site-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+  background-color: #ffffff;
+}
+
+.top-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.site-icon {
+  width: 35px;
+}
+
+.site-title {
+  font-size: 24px;
+  margin-left: 10px;
+}
+
+a.site-title {
+  text-decoration: none;
+  color: #000000;
+  margin-left: 0px;
+}
+
+.site-summary {
+  font-size: 16px;
+  margin-left: 20px;
+  position: absolute;
+  transform: translate(40px, 30px);
+}
+
+.caterory-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.category-icon {
+  width: 40px;
+}
+
+.category-title {
+  font-size: 24px;
+}
+
+.caterory-entry-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* padding: 10px; */
+  margin-left: 30px;
+}
+
+.category-entry-icon {
+  width: 30px;
+}
+
+.category-entry-title {
+  font-size: 18px;
+}
+
+.content-area {
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.content-main {
+  padding-top: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+/* icon spacer */
+.icon-spacer {
+  padding-right: 20px;
+}
+
+/* bread crumb */
+.breadcrumb {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.breadcrumb li {
+  display: inline;
+  list-style: none;
+  font-weight: bold;
+}
+
+.breadcrumb li:after {
+  content: '>';
+  padding: 0 0.2em;
+  color: #888;
+}
+
+.breadcrumb li:last-child:after {
+  content: '';
+}
+
+.breadcrumb li a {
+  text-decoration: none;
+  color: #6375b6;
+}
+
+.breadcrumb li a:hover {
+  text-decoration: underline;
+}
+
+/* accordion */
+.accordion {
+  margin: 2em 0;
+}
+
+.accordion__summary {
+  background: #6375b61a;
+  font-weight: bold;
+  position: relative;
+  display: block;
+  cursor: pointer;
+  padding: 10px 38px 10px 30px;
+  border-radius: 6px; /* 角丸の半径を10pxに設定 */
+}
+
+.accordion__summary::before {
+  content: "";
+  background-image: url('images/icon_arrow_right.svg');
+  background-size: cover;
+  background-repeat: no-repeat; /* 背景画像の繰り返し無し */
+  display: block; /* 背景画像を表示するためのブロック表示 */
+  width: 14px; /* 画像の幅 */
+  height: 14px; /* 画像の高さ */
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.accordion input:checked~.accordion__summary::before {
+  content: "";
+  background-image: url('images/icon_arrow_down.svg'); /* 背景画像をSVGに設定 */
+}
+
+.accordion input {
+  display: none;
+}
+
+.accordion__detail {
+  display: none;
+  background: #fff;
+  padding: 4px 10px;
+  margin: 10px 0;
+}
+
+.accordion input:checked~.accordion__detail {
+  display: block;
+}
+
+.accordion__text {
+  margin: 0;
+}
+
+/* code box */
+.code-box {
+  position: relative;
+  margin: 2em 0;
+  padding: 0.5em 1em;
+  border: solid 3px #6375b6;
+  border-radius: 4px;
+}
+.code-box .code-box-title {
+  position: absolute;
+  display: inline-block;
+  top: -13px;
+  left: 10px;
+  padding: 0 9px;
+  line-height: 1;
+  font-size: 16px;
+  background: #FFF;
+  color: #000;
+}
+.code-box pre {
+  margin-top: 8px;
+  margin-bottom: 0px;
+  padding: 0;
+}

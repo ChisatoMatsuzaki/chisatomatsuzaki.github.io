@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>EW-knowledge</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="images/ew_logo_favicon.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <iframe src="header.html"></iframe>
+  <div class="content-main">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="index.html">
+          <span itemprop="name">Home</span>
+        </a>
+        <meta itemprop="position" content="1" />
+      </li>
+
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="カテゴリー1のURL">
+          <span itemprop="name">カテゴリー1</span>
+        </a>
+        <meta itemprop="position" content="2" />
+      </li>
+
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="カテゴリー2のURL">
+          <span itemprop="name">カテゴリー2</span>
+        </a>
+        <meta itemprop="position" content="3" />
+      </li>
+    </ol>
+
+    <h1>Article title</h1>
+
+    <p>Updated at : xxxx/xx/xx ( Created at : xxxx/xx/xx )</p>
+
+    <h2>Chapter</h2>
+
+    <div class="indent1">
+      <p>Messages</p>
+      <em>Italic Messages</em>
+      <ul>
+        <li>List-1</li>
+        <li>List-2
+          <ul>
+            <li>List-2-1</li>
+          </ul>
+        </li>
+        <li>List-3</li>
+      </ul>
+
+      <h3>Paragraph</h3>
+
+      <div class="indent2">
+        <p>Messages</p>
+
+      <div class="accordion">
+        <input type="checkbox" id="label-1">
+        <label class="accordion__summary" for="label-1">Accordion label</label>
+        <div class="accordion__detail">
+          <div class="accordion__text">
+            <p>Accordion container</p>
+          </div>
+        </div>
+      </div>
+
+        <div class="code-box">
+          <span class="code-box-title">Code box</span>
+          <pre>
+            pre text
+          </pre>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>
