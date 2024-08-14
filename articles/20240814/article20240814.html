@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>EW-knowledge</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="icon" href="../../images/ew_logo_favicon.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <iframe src="../../header.html"></iframe>
+  <div class="content-main">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../../index.html">
+          <span itemprop="name">Home</span>
+        </a>
+        <meta itemprop="position" content="1" />
+      </li>
+    </ol>
+
+    <h1>Swift Algorithms</h1>
+
+    <p>Created at : 2024/08/14</p>
+
+    <div class="indent1">
+      SwiftUIのForEachで.indexed()を使用したかったので導入してみました
+    </div>
+
+    <h2>環境</h2>
+
+    <div class="indent1">
+      <p>作業した時点でのツールなどのバージョン</p>
+      <ul>
+        <li>M2 MacBook Pro 2022</li>
+        <li>macOS Sonoma 14.3.1（23D60）</li>
+        <li>Xcode 15.4 (15F31d)</li>
+      </ul>
+    </div>
+
+    <h2>参考情報</h2>
+
+    <div class="indent1">
+      <ul>
+        <li>Apple Developer : <a href="https://developer.apple.com/jp/videos/play/wwdc2021/10256/" target="_blank">Swift AlgorithmsパッケージとSwift Collectionsパッケージについて</a></li>
+        <li>GitHub : <a href="https://github.com/apple/swift-algorithms" target="_blank">swift-algorithms</a></li>
+      </ul>
+    </div>
+
+    <h2>Swift Package Managerで導入する</h2>
+
+    <div class="indent1">
+
+      <h3><em>File > Add Package Dependencies</em> を選択する</h3>
+      <div class="indent2">
+        <img src="20240814_1.png">
+      </div>
+
+      <h3><em>swift-algorithms</em> を選択する</h3>
+      <div class="indent2">
+        <p>Add to Projectには導入したいプロジェクトを選択しておく</p>
+        <img src="20240814_2.png" width="60%">
+      </div>
+
+      <h3>ダイアログが表示されたら<em>Add Package</em>を押下する</h3>
+      <div class="indent2">
+        <img src="20240814_3.png" width="60%">
+      </div>
+
+    </div>
+
+    <h2>.indexed() を使ったサンプルコード</h2>
+
+    <div class="indent1">
+
+      <div class="code-box">
+        <span class="code-box-title">ContentView.swif</span>
+        <pre>
+          import SwiftUI
+          import Algorithms
+          
+          private struct Song: Hashable {
+              let image: String?
+              let name: String?
+              let artist: String?
+          }
+          
+          struct ContentView: View {
+            var body: some View {
+                let playlists: [Song] = [
+                  .init(image: "artwork001", name: "playlist1", artist: "artist A"),
+                  .init(image: "artwork002", name: "playlist2", artist: "artist B"),
+                  .init(image: "artwork003", name: "playlist3", artist: "artist C")
+                ]
+          
+                VStack {
+                  ForEach(playlists.indexed(), id: \.element) { index, item in
+                    if let imageName = item.image,
+                       let name = item.name,
+                       let artist = item.artist {
+                        
+                        // if let した変数を使用した何らかの処理を書く
+                    }
+                  }
+                }
+                .padding()
+            }
+          }
+        </pre>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
