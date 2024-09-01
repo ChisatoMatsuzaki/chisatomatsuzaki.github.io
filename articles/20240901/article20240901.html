@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>EW-knowledge</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="icon" href="../../images/ew_logo_favicon.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <!-- <iframe src="../../header.html"></iframe> -->
+  <div class="content-main">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../../index.html">
+          <span itemprop="name">Home</span>
+        </a>
+        <meta itemprop="position" content="1" />
+      </li>
+    </ol>
+  
+    <h1>map entryの配列から特定のキーを持つデータのvalueを取得する方法</h1>
+
+    <p>Created at : 2024/09/01</p>
+
+    <h2>環境</h2>
+
+    <div class="indent1">
+      <p><a href="https://dartpad.dev/" target="_blank">DartPad</a>で実行</p>
+      <ul>
+        <li>Dart SDK 3.5.1</li>
+        <li>Flutter SDK 3.24.1</li>
+      </ul>
+    </div>
+
+    <h2>サンプルコード</h2>
+
+    <div class="indent1">
+      <div class="code-box">
+        <span class="code-box-title">特定のキーを持つデータのvalueを取得する</span>
+        <pre>
+List<Map<String, dynamic>> mapList = [
+  {'id': 1, 'name': 'Alice'},
+  {'id': 2, 'name': 'Bob'},
+  {'id': 3, 'name': 'Charlie'}
+];
+
+// idが2のnameを取得する
+var value = mapList.firstWhere((map) => map['id'] == 2)['name'];
+print(value); // Bobが表示される            
+        </pre>
+      </div>
+
+      <p>条件に合致する要素が存在しない場合には、firstWhereメソッドにはオプションのorElse関数を提供して、デフォルトの値を設定することもできる</p>
+      <div class="code-box">
+        <span class="code-box-title">orElseでnullを設定する</span>
+        <pre>
+var value = mapList.firstWhere(
+  (map) => map['id'] == 4,
+  orElse: () => {'name': null}
+)['name'];
+        </pre>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -78,36 +78,36 @@
       <div class="code-box">
         <span class="code-box-title">ContentView.swif</span>
         <pre>
-          import SwiftUI
-          import Algorithms
-          
-          private struct Song: Hashable {
-              let image: String?
-              let name: String?
-              let artist: String?
+import SwiftUI
+import Algorithms
+
+private struct Song: Hashable {
+    let image: String?
+    let name: String?
+    let artist: String?
+}
+
+struct ContentView: View {
+  var body: some View {
+      let playlists: [Song] = [
+        .init(image: "artwork001", name: "playlist1", artist: "artist A"),
+        .init(image: "artwork002", name: "playlist2", artist: "artist B"),
+        .init(image: "artwork003", name: "playlist3", artist: "artist C")
+      ]
+
+      VStack {
+        ForEach(playlists.indexed(), id: \.element) { index, item in
+          if let imageName = item.image,
+              let name = item.name,
+              let artist = item.artist {
+              
+              // if let した変数を使用した何らかの処理を書く
           }
-          
-          struct ContentView: View {
-            var body: some View {
-                let playlists: [Song] = [
-                  .init(image: "artwork001", name: "playlist1", artist: "artist A"),
-                  .init(image: "artwork002", name: "playlist2", artist: "artist B"),
-                  .init(image: "artwork003", name: "playlist3", artist: "artist C")
-                ]
-          
-                VStack {
-                  ForEach(playlists.indexed(), id: \.element) { index, item in
-                    if let imageName = item.image,
-                       let name = item.name,
-                       let artist = item.artist {
-                        
-                        // if let した変数を使用した何らかの処理を書く
-                    }
-                  }
-                }
-                .padding()
-            }
-          }
+        }
+      }
+      .padding()
+  }
+}
         </pre>
       </div>
     </div>
