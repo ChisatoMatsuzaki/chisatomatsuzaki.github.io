@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>EW-knowledge</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="icon" href="../../images/ew_logo_favicon.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <!-- <iframe src="../../header.html"></iframe> -->
+  <div class="content-main">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../../index.html">
+          <span itemprop="name">Home</span>
+        </a>
+        <meta itemprop="position" content="1" />
+      </li>
+    </ol>
+  
+    <h1>MacBookでFFmpegを使用する</h1>
+
+    <p>Created at : 2021/08/12</p>
+
+    <p>waveファイルをmp3に変換したくて、FFmpegをMacbookにインストールしました。
+      そのときのメモです。</p>
+
+    <h2>前提</h2>
+
+    <div class="indent1">
+      <p><a href="https://brew.sh/ja/" target="_blank">Homebrew</a> がインストールされていること</p>
+    </div>
+
+    <h2>手順</h2>
+
+    <div class="indent1">
+      <h3>1. FFmpegをインストールする</h3>
+      <div class="indent2">
+        <p>ターミナルを開き、次のコマンドを入力してEnterキーを押下</p>
+        <div class="code-box">
+          <span class="code-box-title"></span>
+          <pre>
+brew install ffmpeg
+          </pre>
+        </div>
+      </div>
+
+      <h3>2. WAV → MP3 変換</h3>
+      <div class="indent2">
+        <p>ターミナルを開き、次のコマンドを入力してEnterキーを押下</p>
+        <div class="code-box">
+          <span class="code-box-title"></span>
+          <pre>
+ffmpeg -i input.wav output.mp3
+          </pre>
+        </div>
+      </div>
+    </div>
+
+    <h2>その他</h2>
+
+    <div class="indent1">
+      <h3>FFmpegをアップデートする</h3>
+      <div class="indent2">
+        <p>ターミナルを開き、次のコマンドを入力してEnterキーを押下</p>
+        <div class="code-box">
+          <span class="code-box-title"></span>
+          <pre>
+brew update ffmpeg
+          </pre>
+        </div>
+      </div>
+
+      <h3>FFmpegをアンインストールする</h3>
+      <div class="indent2">
+        <p>ターミナルを開き、次のコマンドを入力してEnterキーを押下</p>
+        <div class="code-box">
+          <span class="code-box-title"></span>
+          <pre>
+brew uninstall ffmpeg
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
