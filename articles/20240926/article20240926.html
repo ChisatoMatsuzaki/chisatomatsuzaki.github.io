@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>EW-knowledge</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="icon" href="../../images/ew_logo_favicon.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <!-- <iframe src="../../header.html"></iframe> -->
+  <div class="content-main">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../../index.html">
+          <span itemprop="name">Home</span>
+        </a>
+        <meta itemprop="position" content="1" />
+      </li>
+    </ol>
+
+    <h1>Documentsフォルダを含めたpathを保存して失敗</h1>
+
+    <p>Created at : 2024/09/26</p>
+
+    <h2>結論</h2>
+
+    <div class="indent1">
+      <p>DBに端末のDocumentsフォルダのpathを含めて保存しない</p>
+      <p>サブフォルダを含めたファイル名だけにしようね</p>
+    </div>
+
+    <h2>やってしまったこと</h2>
+
+    <div class="indent1">
+
+      <p>
+        アプリで合成や加工をした画像を端末のDocumentsフォルダに保存し、画像のpathをアプリ固有のアイテムと紐付けてDBに保存しておいて利用しようとした<br>
+        DBへ保存したpathにはDocumentsフォルダのpathも含めて保存してしまった<br>
+      </p>
+
+    </div>
+
+    <h2>発生した不具合</h2>
+
+    <div class="indent1">
+
+      <p>
+        DBからデータをREADして画面に表示てみたら、画像が表示されなかった<br>
+        保存時にはエラーになっていないのだから保存はできているはず？<br>
+      </p>
+      <p>
+        Documentsフォルダのpathを取得して、保存されているはずのファイル名を付加して画像を表示してみる<br>
+        画像が表示された！<br>
+      </p>
+      <p>
+        次に、DBに保存されているpathと画像が表示されたpathをprintしてみる<br>
+        あ！pathが違う・・・<br>
+      </p>
+      <p>
+        ひとつ勉強になりました
+      </p>
+
+    </div>
+
+  </div>
+</body>
+
+</html>
