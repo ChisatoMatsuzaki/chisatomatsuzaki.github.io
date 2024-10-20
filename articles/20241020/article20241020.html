@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>EW-knowledge</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="icon" href="../../images/ew_logo_favicon.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <!-- <iframe src="../../header.html"></iframe> -->
+  <div class="content-main">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../../index.html">
+          <span itemprop="name">Home</span>
+        </a>
+        <meta itemprop="position" content="1" />
+      </li>
+    </ol>
+  
+    <h1>SwiftUI - Text : 表示しきれなかったときの設定</h1>
+
+    <p>Created at : 2024/10/20</p>
+
+    <h2>環境</h2>
+
+    <div class="indent1">
+      <ul>
+        <li>Xcode 15.4</li>
+      </ul>
+    </div>
+
+    <h2>主なモディファイア</h2>
+
+    <div class="indent1">
+      <ul>
+        <li>.lineLimit
+          <ul>
+            <li>表示する行数の上限を指定</li>
+          </ul>
+        </li>
+        <li>.truncationMode
+          <ul>
+            <li>テキストが表示しきれない場合、どの位置で省略するかを指定
+              <ul>
+                <li>.head: 先頭を省略する</li>
+                <li>.middle: 真ん中を省略する</li>
+                <li>.tail: 末尾を省略する</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>.allowsTightening
+          <ul>
+            <li>テキストがレイアウトに収まらないときに、テキストの文字間を狭めて表示するかどうかを指定</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <h2>サンプルコード</h2>
+
+    <div class="indent1">
+      <div class="code-box">
+        <span class="code-box-title">行数制限をかけて末尾に省略記号を表示</span>
+        <pre>
+Text(longText)
+  .lineLimit(1) // 1行に制限
+  .truncationMode(.tail) // 末尾を省略
+        </pre>
+      </div>
+
+      <div class="code-box">
+        <span class="code-box-title">複数行で表示</span>
+        <pre>
+Text(song.title)
+  .lineLimit(2) // 最大2行まで表示
+  .truncationMode(.tail) // 2行目の末尾を省略
+        </pre>
+      </div>
+
+      <div class="code-box">
+        <span class="code-box-title">先頭を省略</span>
+        <pre>
+Text(longText)
+  .lineLimit(1) // 1行に制限
+  .truncationMode(.head) // 先頭を省略
+        </pre>
+      </div>
+
+      <div class="code-box">
+        <span class="code-box-title">末尾を省略してタイトに表示</span>
+        <pre>
+Text(song.title)
+  .lineLimit(1)
+  .truncationMode(.tail) // 末尾を省略
+  .allowsTightening(true) // 必要に応じて文字間を詰める
+        </pre>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>
