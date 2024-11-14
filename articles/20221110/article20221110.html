@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>EW-knowledge</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="icon" href="../../images/ew_logo_favicon.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <!-- <iframe src="../../header.html"></iframe> -->
+  <div class="content-main">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../../index.html">
+          <span itemprop="name">Home</span>
+        </a>
+        <meta itemprop="position" content="1" />
+      </li>
+    </ol>
+  
+    <h1>AssetImage を Uint8List にする</h1>
+
+    <p>Created at : 2022/11/10</p>
+
+    <h2>サンプルコード</h2>
+
+    <div class="indent1">
+      <div class="code-box">
+        <span class="code-box-title"></span>
+        <pre>
+final ByteData data = await rootBundle.load(filename);
+final Uint8List list = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+        </pre>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
