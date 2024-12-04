@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>EW-knowledge</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="icon" href="../../images/ew_logo_favicon.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <!-- <iframe src="../../header.html"></iframe> -->
+  <div class="content-main">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../../index.html">
+          <span itemprop="name">Home</span>
+        </a>
+        <meta itemprop="position" content="1" />
+      </li>
+    </ol>
+  
+    <h1>SwiftUI - jaでは1月1日　enではJanuary 1stと表記する文字列を作る</h1>
+
+    <p>Created at : 2024/12/04</p>
+
+    <h2>環境</h2>
+
+    <div class="indent1">
+      <ul>
+        <li>Xcode 15.4</li>
+        <li>SwiftUI</li>
+      </ul>
+    </div>
+
+    <h2>サンプルコード</h2>
+
+    <div class="indent1">
+      <p>
+        厳密には ja or other だけど、1st, 2nd, 3rd, 4th とか面倒ですよね・・・<br>
+        サンプルコードは現在から5日後の日付の文字列を作るものになっています
+      </p>
+      <div class="code-box">
+        <span class="code-box-title"></span>
+        <pre>
+// locale情報を取得
+@Environment(\.locale) private var locale
+
+private var fiveDaysLaterString: String {
+  let calendar = Calendar.current
+  let today = Date()
+      
+  guard let fiveDaysLater = calendar.date(byAdding: .day, value: 5, to: today) else {
+    return ""
+  }
+  return formatDateString(fiveDaysLater)
+}
+
+func formatDateString(_ date: Date) -> String {
+  if locale.language.languageCode == .japanese {
+      let formatter = DateFormatter()
+      formatter.locale = Locale(identifier: "ja_JP")
+      formatter.dateFormat = "M月d日"
+      return formatter.string(from: date)
+  } else {
+      func ordinalDay(_ day: Int) -> String {
+          switch day {
+          case 1, 21, 31:
+              return "\(day)st"
+          case 2, 22:
+              return "\(day)nd"
+          case 3, 23:
+              return "\(day)rd"
+          default:
+              return "\(day)th"
+          }
+      }
+      
+      let calendar = Calendar.current
+      let formatter = DateFormatter()
+      formatter.locale = Locale(identifier: "en_US")
+
+      formatter.dateFormat = "MMMM"
+      let monthName = formatter.string(from: date)
+      
+      let dayComponent = calendar.component(.day, from: date)
+      
+      return "\(monthName) \(ordinalDay(dayComponent))"
+  }
+}
+        </pre>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
